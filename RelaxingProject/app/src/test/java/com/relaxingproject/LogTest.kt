@@ -20,7 +20,9 @@ class LogTest {
     @Test
     fun logClassSaveDate() {
         var log = Log()
-        log.date = Date(2020,4,1)
-        assertEquals(Date(2020,4,1), log.date)
+        //log.date = Date(2020,4,1)
+        //assertEquals(Date(2020,4,1), log.date)
+        log.date = "1/1/2020"
+        assertEquals("1/1/2020", log.date)
     }
 }
