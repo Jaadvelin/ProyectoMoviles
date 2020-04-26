@@ -1,5 +1,6 @@
 package com.relaxingproject
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -43,7 +44,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     fun register(view:View){
-
+        createNewAccount()
     }
 
     private fun createNewAccount(){
@@ -61,13 +62,22 @@ class RegisterActivity : AppCompatActivity() {
                 if(task.isComplete){
                     val user: FirebaseUser?=auth.currentUser
                     verifyEmail(user)
+
+                    val userBD = dbReference.child(user?.uid!!)
+
+                    userBD.child("Name").setValue(name)
+                    userBD.child("lastName").setValue(lastName)
+                    action()
                 }
             }
         }
     }
+    private fun action(){
+        startActivity(Intent(this,LoginActivity::class.java))
+    }
 
     private fun verifyEmail(user:FirebaseUser?){
-        user.sendEmailVerification().addOnCompleteListener(this){
+        user?.sendEmailVerification()?.addOnCompleteListener(this){
             task ->
 
             if(task.isComplete){
