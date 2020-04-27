@@ -19,5 +19,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,LogActivity::class.java))
         }
 
+        this.logHistBtn.setOnClickListener {
+            startActivity(Intent(this,LogHistoryActivity::class.java))
+        }
+
+        this.medHistBtn.setOnClickListener {
+            startActivity(Intent(this,MedHistoryActivity::class.java))
+        }
+
     }
 }

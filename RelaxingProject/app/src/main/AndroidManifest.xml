@@ -19,6 +19,8 @@
         <activity android:name=".LogActivity" />
         <activity android:name=".classes.MeditateActivity" />
         <activity android:name=".MeditateActivity" />
+        <activity android:name=".LogHistoryActivity" />
+        <activity android:name=".MedHistoryActivity" />
     </application>
 
 </manifest>
