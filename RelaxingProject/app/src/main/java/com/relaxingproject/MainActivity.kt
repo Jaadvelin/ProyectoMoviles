@@ -10,8 +10,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        logBtn.setOnClickListener {
+
+        this.meditateBtn.setOnClickListener {
+            startActivity(Intent(this,MeditateActivity::class.java))
+        }
+
+        this.logBtn.setOnClickListener {
             startActivity(Intent(this,LogActivity::class.java))
         }
+
+        this.logHistBtn.setOnClickListener {
+            startActivity(Intent(this,LogHistoryActivity::class.java))
+        }
+
+        this.medHistBtn.setOnClickListener {
+            startActivity(Intent(this,MedHistoryActivity::class.java))
+        }
+
     }
 }
