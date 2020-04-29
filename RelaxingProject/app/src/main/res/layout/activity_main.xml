@@ -82,8 +82,9 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="4dp"
                     android:layout_weight="1"
-                    android:backgroundTint="#FFFFFF"
-                    android:text="Log\nHistory" />
+                    android:background="@drawable/rounded_button_default"
+                    android:text="Log\nHistory"
+                    android:textColor="#ffffff" />
 
                 <Button
                     android:id="@+id/logBtn"
@@ -92,8 +93,9 @@
                     android:layout_marginEnd="2dp"
                     android:layout_marginBottom="4dp"
                     android:layout_weight="1"
-                    android:backgroundTint="#FFFFFF"
-                    android:text="Log" />
+                    android:background="@drawable/rounded_button_default"
+                    android:text="Log"
+                    android:textColor="#ffffff" />
 
             </LinearLayout>
 
@@ -111,8 +113,9 @@
                     android:layout_marginEnd="11dp"
                     android:layout_marginBottom="4dp"
                     android:layout_weight="1"
-                    android:backgroundTint="#FFFFFF"
-                    android:text="Meditation\nHistory" />
+                    android:background="@drawable/rounded_button_default"
+                    android:text="Meditation\nHistory"
+                    android:textColor="#ffffff" />
 
                 <Button
                     android:id="@+id/meditateBtn"
@@ -121,8 +124,9 @@
                     android:layout_marginEnd="2dp"
                     android:layout_marginBottom="4dp"
                     android:layout_weight="1"
-                    android:backgroundTint="#FFFFFF"
-                    android:text="Meditate" />
+                    android:background="@drawable/rounded_button_default"
+                    android:text="Meditate"
+                    android:textColor="#ffffff" />
             </LinearLayout>
         </LinearLayout>
 

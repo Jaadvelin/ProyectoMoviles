@@ -19,45 +19,43 @@
         android:id="@+id/txtName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint = "Name"
         android:layout_margin="10dp"
-        android:inputType="textPersonName"
-        />
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/txtLastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint = "Last Name"
         android:layout_margin="10dp"
-        android:inputType="textPersonName"
-        />
+        android:ems="10"
+        android:hint="Last Name"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/txtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint = "Email"
         android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="Email"
         android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/txtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint = "Password"
         android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="Password"
         android:inputType="textPassword" />
 
     <Button
-        android:onClick="register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button_default"
+        android:onClick="register"
         android:text="Create Account"
-        android:background= "@color/colorPrimary"
-        android:textColor="@android:color/white"/>
+        android:textColor="#ffffff" />
 </LinearLayout>
