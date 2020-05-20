@@ -60,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
             txtPassword.requestFocus()
             return
         }
-
+        //comentario random
         auth.signInWithEmailAndPassword(txtUser.text.toString(), txtPassword.text.toString())
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
