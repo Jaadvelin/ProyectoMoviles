@@ -14,49 +14,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1.9"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/monthBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="9"
-                android:backgroundTint="#FFFFFF"
-                android:text="MONTH" />
-
-            <Button
-                android:id="@+id/dayBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:backgroundTint="#FFFFFF"
-                android:text="DAY" />
-
-            <Button
-                android:id="@+id/yearBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:backgroundTint="#FFFFFF"
-                android:text="Year" />
-
-        </LinearLayout>
-
         <CalendarView
             android:id="@+id/logCalendarView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="256dp"
             android:layout_weight="1.1" />
 
         <TextView
             android:id="@+id/selectedLog"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="54dp"
             android:layout_weight="1"
             android:text="SELECTED LOG" />
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.1" />
+
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
