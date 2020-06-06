@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "580326356058",
+    "firebase_url": "https://loginmobiles-79d32.firebaseio.com",
+    "project_id": "loginmobiles-79d32",
+    "storage_bucket": "loginmobiles-79d32.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:580326356058:android:df1f92815a82621ed55463",
+        "android_client_info": {
+          "package_name": "com.relaxingproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "580326356058-91rt8ups69ps676g8m17hk3t2u6g6k50.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.relaxingproject",
+            "certificate_hash": "c0a32b26247cd3ef09812762f008f3040038e0cd"
+          }
+        },
+        {
+          "client_id": "580326356058-1173df8q3i5mol4odkg5gpq9nphir38q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiKWkQw10qbUZhc0Ea1ysuB-65ZwCREPw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "580326356058-utmve37ns1qb9nd0ee6n42a4u2f2nd7l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
