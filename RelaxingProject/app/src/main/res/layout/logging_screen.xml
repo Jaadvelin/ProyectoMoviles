@@ -56,4 +56,11 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Log Text" />
+
+    <EditText
+        android:id="@+id/ratingField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="number" />
 </LinearLayout>
