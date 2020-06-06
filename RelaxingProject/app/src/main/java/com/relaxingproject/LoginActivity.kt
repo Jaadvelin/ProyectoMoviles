@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.Toast
@@ -15,99 +16,81 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_login.*
 
 
 const val RC_SIGN_IN = 123
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var txtUser: EditText
-    private lateinit var txtPassword: EditText
     private lateinit var progressBar: ProgressBar
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        //EL CODIGO COMENTADO ES PARA LA AUTENTICACIÓN CON GOOGLE, AUN NO JALA
-        /*// Configure sign-in to request the user's ID, email address, and basic
-        // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
-        val gso =
-            GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build()
-        // Build a GoogleSignInClient with the options specified by gso.
-        val mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        sign_in_button.visibility = View.VISIBLE
-        sign_in_button.setOnClickListener{
-            val signInIntent = mGoogleSignInClient.signInIntent
-            startActivityForResult(signInIntent, RC_SIGN_IN)
-        }*/
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        txtUser = findViewById(R.id.txtUser)
-        txtPassword = findViewById(R.id.txtPassword)
-        progressBar= findViewById(R.id.progressBar)
         auth= FirebaseAuth.getInstance()
+
+        regButton.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
+            finish()
+        }
+
+        logButton.setOnClickListener{
+            doLogin()
+        }
     }
 
-    fun forgotPassword(view:View){
+    private fun doLogin(){
+        if(txtUser.text.toString().isEmpty()){
+            txtUser.error = "Please enter email"
+            txtUser.requestFocus()
+            return
+        }
 
-    }
-    fun register(view:View){
-        startActivity(Intent(this, RegisterActivity::class.java))
-    }
-    fun login(view:View){
-        loginUser()
-    }
+        /*if(Patterns.EMAIL_ADDRESS.matcher(txtEmail.text.toString()).matches()){
+            txtEmail.error = "Please enter valid email"
+            txtEmail.requestFocus()
+            return
+        }*/
 
-    private fun loginUser(){
-        val user:String = txtUser.text.toString()
-        val password:String = txtPassword.text.toString()
-
-        if(!TextUtils.isEmpty(user) && !TextUtils.isEmpty(password)){
-            progressBar.visibility = View.VISIBLE
-
-            auth.signInWithEmailAndPassword(user, password).addOnCompleteListener(this){
-                task ->
-
-                if(task.isSuccessful){
-                    action()
-                }else{
-                    Toast.makeText(this, "Error en la autenticación", Toast.LENGTH_LONG).show()
+        if(txtPassword.text.toString().isEmpty()){
+            txtPassword.error = "Please enter password"
+            txtPassword.requestFocus()
+            return
+        }
+        //comentario random
+        auth.signInWithEmailAndPassword(txtUser.text.toString(), txtPassword.text.toString())
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    val user = auth.currentUser
+                    updateUI(user)
+                } else {
+                    updateUI(null)
                 }
             }
-        }
     }
 
-    private fun action(){
-        startActivity(Intent(this, MainActivity::class.java))
+    public override fun onStart() {
+        super.onStart()
+        val currentUser = auth.currentUser
+        updateUI(currentUser)
     }
 
-    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
+    private fun updateUI(currentUser: FirebaseUser?){
 
-        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN) {
-            // The Task returned from this call is always completed, no need to attach
-            // a listener.
-            val task =
-                GoogleSignIn.getSignedInAccountFromIntent(data)
-            handleSignInResult(task)
+        if(currentUser != null){
+            if(currentUser.isEmailVerified){
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
+            }else {
+                Toast.makeText(baseContext, "Please verify your email.",
+                    Toast.LENGTH_SHORT).show()
+            }
+        } else{
+            Toast.makeText(baseContext, "Login failed.",
+                Toast.LENGTH_SHORT).show()
         }
-    }*/
-
-    /*private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
-        try {
-            val account =
-                completedTask.getResult(ApiException::class.java)
-
-            // Signed in successfully, show authenticated UI.
-
-        } catch (e: ApiException) {
-            // The ApiException status code indicates the detailed failure reason.
-            // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            sign_in_button.visibility = View.VISIBLE
-        }
-    }*/
+    }
 }
