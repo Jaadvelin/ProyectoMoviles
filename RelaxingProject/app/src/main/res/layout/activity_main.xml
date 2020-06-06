@@ -24,7 +24,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1.2">
+            android:layout_weight="1">
 
             <ImageView
                 android:id="@+id/ratingIcon"
@@ -32,24 +32,31 @@
                 android:layout_height="match_parent"
                 android:layout_marginBottom="23dp"
                 android:layout_weight="1.2"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                app:srcCompat="@drawable/meditate"
+                tools:srcCompat="@drawable/meditate" />
         </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2.2"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/ratingLbl"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:text="RATING"
+                android:layout_weight="4"
+                android:text="Rate your day"
                 android:textAlignment="center"
                 android:textSize="24sp"
                 android:textStyle="bold" />
+
+            <com.hsalf.smileyrating.SmileyRating
+                android:id="@+id/smile_rating"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
             <TextView
                 android:id="@+id/dateLbl"
@@ -65,7 +72,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1.8"
+            android:layout_weight="1"
             android:orientation="vertical">
 
             <LinearLayout
