@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.logging_screen.*
 class LogActivity: AppCompatActivity() {
     private val dbHelper = DatabaseHelper(this)
     // Gets the data repository in write mode
-
+	//.
     var logs: MutableList<Log> = mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
