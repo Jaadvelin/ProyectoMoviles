@@ -21,10 +21,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1.5">
 
             <ImageView
                 android:id="@+id/ratingIcon"
@@ -39,7 +40,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:orientation="vertical">
 
             <TextView
@@ -67,75 +68,135 @@
                 android:textAlignment="center"
                 android:textSize="24sp"
                 android:textStyle="bold" />
+
         </LinearLayout>
 
-        <LinearLayout
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_weight="2">
 
-            <LinearLayout
+
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:orientation="horizontal">
+                android:layout_weight="1">
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".1" />
 
                 <Button
                     android:id="@+id/logHistBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="4dp"
+                    android:layout_width="0"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/rounded_button_default"
-                    android:text="Log\nHistory"
+                    android:text="Log History"
                     android:textColor="#ffffff" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".1" />
 
                 <Button
                     android:id="@+id/logBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="2dp"
-                    android:layout_marginBottom="4dp"
+                    android:layout_width="0"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/rounded_button_default"
                     android:text="Log"
                     android:textColor="#ffffff" />
 
-            </LinearLayout>
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".1" />
 
-            <LinearLayout
+            </TableRow>
+
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:orientation="horizontal">
+                android:layout_weight="1">
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".1" />
 
                 <Button
                     android:id="@+id/medHistBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="2dp"
-                    android:layout_marginEnd="11dp"
-                    android:layout_marginBottom="4dp"
+                    android:layout_width="0"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/rounded_button_default"
-                    android:text="Meditation\nHistory"
+                    android:text="Meditation History"
+                    android:textAlignment="center"
                     android:textColor="#ffffff" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".1" />
 
                 <Button
                     android:id="@+id/meditateBtn"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="2dp"
-                    android:layout_marginBottom="4dp"
+                    android:layout_width="0"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/rounded_button_default"
                     android:text="Meditate"
                     android:textColor="#ffffff" />
-            </LinearLayout>
-        </LinearLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".1" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <Space
+                    android:layout_width="0"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".1" />
+
+                <Button
+                    android:id="@+id/settingsBtn"
+                    android:layout_width="0"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_button_default"
+                    android:text="Settings"
+                    android:textColor="#ffffff" />
+
+                <Space
+                    android:layout_width="0"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".1" />
+
+                <Button
+                    android:id="@+id/Patterns"
+                    android:layout_width="0"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounded_button_default"
+                    android:text="Patterns"
+                    android:textColor="#ffffff" />
+
+                <Space
+                    android:layout_width="0"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".1" />
+            </TableRow>
+
+        </TableLayout>
 
     </LinearLayout>
 

@@ -43,10 +43,8 @@ class MainActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun currentDate() {
-
         val current = LocalDateTime.now()
         val formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)
-        // val formatter = DateTimeFormatter.ofPattern("d-MM-yyyy")
         val formatted = current.format(formatter)
         dateLbl.text = formatted
     }
