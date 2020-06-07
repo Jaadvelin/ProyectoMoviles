@@ -6,6 +6,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
+import android.media.Rating
 import android.provider.BaseColumns
 import com.relaxingproject.classes.LogTable.LogEntry.TABLE_NAME
 
@@ -16,14 +17,18 @@ object LogTable {
         const val COLUMN_NAME_TITLE = "title"
         const val COLUMN_NAME_TEXT = "text"
         const val COLUMN_NAME_DATE= "date"
+        const val COLUMN_NAME_IMAGE= "image"
+        const val COLUMN_NAME_RATING= "rating"
 
     }
 }
 private const val SQL_CREATE_ENTRIES = "CREATE TABLE ${LogTable.LogEntry.TABLE_NAME} (" +
             "${BaseColumns._ID} INTEGER PRIMARY KEY," +
             "${LogTable.LogEntry.COLUMN_NAME_TITLE} TEXT," +
-            "${LogTable.LogEntry.COLUMN_NAME_TEXT} TEXT)" +
-            "${LogTable.LogEntry.COLUMN_NAME_DATE} TEXT)"
+            "${LogTable.LogEntry.COLUMN_NAME_TEXT} TEXT," +
+            "${LogTable.LogEntry.COLUMN_NAME_DATE} TEXT," +
+            "${LogTable.LogEntry.COLUMN_NAME_IMAGE} BLOB," +
+            "${LogTable.LogEntry.COLUMN_NAME_RATING} TEXT)"
 
 private const val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS ${LogTable.LogEntry.TABLE_NAME}"
 
@@ -46,12 +51,14 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         const val DATABASE_NAME = "Relaxing.db"
     }
     //method to insert data
-    fun addLog(log: Log):Long{
+    fun addLog(log: Log, image:ByteArray):Long{
         val db = this.writableDatabase
         val contentValues = ContentValues()
         contentValues.put(LogTable.LogEntry.COLUMN_NAME_TITLE, log.title)
         contentValues.put(LogTable.LogEntry.COLUMN_NAME_TEXT, log.text) // EmpModelClass Name
         contentValues.put(LogTable.LogEntry.COLUMN_NAME_DATE, log.date) // EmpModelClass Phone
+        contentValues.put(LogTable.LogEntry.COLUMN_NAME_IMAGE, image)
+        contentValues.put(LogTable.LogEntry.COLUMN_NAME_DATE, log.rating)
         // Inserting Row
         val success = db.insert(TABLE_NAME, null, contentValues)
         //2nd argument is String containing nullColumnHack
@@ -73,15 +80,21 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         var Title: String
         var Text: String
         var Date: String
+        var Rating: String
+        var Image:ByteArray
         if (cursor.moveToFirst()) {
             do {
                 Title = cursor.getString(cursor.getColumnIndex("title"))
                 Text = cursor.getString(cursor.getColumnIndex("text"))
                 Date = cursor.getString(cursor.getColumnIndex("date"))
+                Rating = cursor.getString(cursor.getColumnIndex("rating"))
+                Image = cursor.getBlob(cursor.getColumnIndex("image"))
                 val logs = Log()
                 logs.title = Title
                 logs.text = Text
                 logs.date = Date
+                logs.rating = Rating
+                logs.image = Image
                 LogList.add(logs)
             } while (cursor.moveToNext())
         }
@@ -94,7 +107,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         contentValues.put(LogTable.LogEntry.COLUMN_NAME_TITLE, log.title)
         contentValues.put(LogTable.LogEntry.COLUMN_NAME_TEXT, log.text) // EmpModelClass Name
         contentValues.put(LogTable.LogEntry.COLUMN_NAME_DATE, log.date) // EmpModelClass Phone
-
+        contentValues.put(LogTable.LogEntry.COLUMN_NAME_RATING, log.rating)
         // Updating Row
         val success = db.update(TABLE_NAME, contentValues,"title="+log.title,null)
         //2nd argument is String containing nullColumnHack
