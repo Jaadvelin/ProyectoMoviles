@@ -26,8 +26,8 @@ private const val SQL_CREATE_ENTRIES = "CREATE TABLE ${LogTable.LogEntry.TABLE_N
             "${BaseColumns._ID} INTEGER PRIMARY KEY," +
             "${LogTable.LogEntry.COLUMN_NAME_TITLE} TEXT," +
             "${LogTable.LogEntry.COLUMN_NAME_TEXT} TEXT," +
-            "${LogTable.LogEntry.COLUMN_NAME_DATE} TEXT)," +
-            "${LogTable.LogEntry.COLUMN_NAME_IMAGE} BLOB)," +
+            "${LogTable.LogEntry.COLUMN_NAME_DATE} TEXT," +
+            "${LogTable.LogEntry.COLUMN_NAME_IMAGE} BLOB," +
             "${LogTable.LogEntry.COLUMN_NAME_RATING} TEXT)"
 
 private const val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS ${LogTable.LogEntry.TABLE_NAME}"
