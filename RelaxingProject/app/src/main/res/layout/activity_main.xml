@@ -53,7 +53,7 @@
                 android:textStyle="bold" />
 
             <com.hsalf.smileyrating.SmileyRating
-                android:id="@+id/smile_rating"
+                android:id="@+id/smileyRating"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1" />
