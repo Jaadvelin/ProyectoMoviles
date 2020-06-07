@@ -10,7 +10,6 @@ import android.widget.CalendarView
 import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
 import com.relaxingproject.classes.DatabaseHelper
 import com.relaxingproject.classes.Log
 import java.security.AccessControlContext
@@ -19,7 +18,7 @@ class LogHistoryActivity: AppCompatActivity() {
     private val dbHelper = DatabaseHelper(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var dblogs: List<Log> = dbHelper.viewLog()
+        var dataLogs: List<Log> = dbHelper.viewLog()
         val showLogs = mutableListOf<Log>()
         setContentView(R.layout.loghistory_screen)
         val calendarView = findViewById<CalendarView>(R.id.logCalendarView)
@@ -29,13 +28,13 @@ class LogHistoryActivity: AppCompatActivity() {
         calendarView?.setOnDateChangeListener{view, year, month, day ->
             val searchedDate = "" + day + "/" + (month + 1) + "/" + year
             showLogs.clear()
-            dblogs.forEach{
+            dataLogs.forEach{
                 if(it.date == searchedDate){
                     showLogs.add(it)
                 }
             }
             listView.adapter = MyCustomAdapter(this, showLogs)
-            val log: Log? = dblogs.find { it.date == searchedDate }
+            val log: Log? = dataLogs.find { it.date == searchedDate }
             if (log == null){
                 logText.text = "No Log found"
             }else{
