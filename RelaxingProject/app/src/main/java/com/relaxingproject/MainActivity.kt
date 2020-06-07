@@ -40,6 +40,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,MedHistoryActivity::class.java))
         }
 
+        this.settingsBtn.setOnClickListener {
+            startActivity(Intent(this,SettingsActivity::class.java))
+        }
+
         this.currentDate()
 
         smileyRating.setSmileySelectedListener(OnSmileySelectedListener { type -> // You can compare it with rating Type
