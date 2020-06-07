@@ -19,6 +19,16 @@ class Log{
             field = value
         }
     var text: String = "Default"
+    get() = field
+    set(value){
+        field = value
+    }
+    var rating: String = "5"
+        get() = field
+        set(value){
+            field = value
+        }
+    var image: ByteArray = ByteArray(0)
         get() = field
         set(value){
             field = value
