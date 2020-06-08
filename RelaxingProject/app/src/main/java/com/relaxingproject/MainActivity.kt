@@ -3,16 +3,11 @@ package com.relaxingproject
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentActivity
-import com.hsalf.smileyrating.SmileyRating
-import com.hsalf.smileyrating.SmileyRating.OnSmileySelectedListener
 import kotlinx.android.synthetic.main.activity_main.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import java.time.format.FormatStyle
 
 
 class MainActivity : AppCompatActivity() {
@@ -53,8 +48,9 @@ class MainActivity : AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun currentDate() {
+        val datePattern = "dd/MM/yyyy"
         val current = LocalDateTime.now()
-        val formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)
+        val formatter = DateTimeFormatter.ofPattern(datePattern)
         val formatted = current.format(formatter)
         dateLbl.text = formatted
     }

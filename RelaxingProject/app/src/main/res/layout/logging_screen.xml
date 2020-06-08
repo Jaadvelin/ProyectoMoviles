@@ -75,7 +75,7 @@
                 android:layout_weight="3"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Title"
+                android:hint="Título"
                 android:textColor="#4671C6" />
 
             <Space
@@ -104,7 +104,7 @@
                 android:ems="10"
                 android:gravity="top"
                 android:inputType="textMultiLine"
-                android:text="Log Text"
+                android:hint="Entrada"
                 android:textAlignment="viewStart"
                 android:textColor="#4671C6"
                 tools:ignore="RtlCompat" />

@@ -9,18 +9,23 @@ import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.os.Build
 import android.os.Bundle
+import android.text.Editable
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.hsalf.smileyrating.SmileyRating
 import com.relaxingproject.classes.DatabaseHelper
 import com.relaxingproject.classes.Log
 import kotlinx.android.synthetic.main.logging_screen.*
 import java.io.ByteArrayOutputStream
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class LogActivity: AppCompatActivity() {
     private val dbHelper = DatabaseHelper(this)
     private var imageFlag = 0
+    var logs: MutableList<Log> = mutableListOf()
     // Gets the data repository in write mode
 	//.
     fun getBytes(bitmap: Bitmap):ByteArray{
@@ -71,10 +76,20 @@ class LogActivity: AppCompatActivity() {
         private val PERMISSION_CODE = 1001
     }
 
-    var logs: MutableList<Log> = mutableListOf()
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun currentDate() {
+        val datePattern = "dd/MM/yyyy"
+        val current = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern(datePattern)
+        val formatted = current.format(formatter)
+        dateField.text = Editable.Factory.getInstance().newEditable(formatted)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.logging_screen)
+        this.currentDate()
         val imageView = findViewById<ImageView>(R.id.imageView)
         imageView.setImageURI(null)
         var rating = ""
