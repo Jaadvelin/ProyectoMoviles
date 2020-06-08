@@ -108,7 +108,6 @@ class LogActivity: AppCompatActivity() {
 
         smileyRating.setSmileySelectedListener(SmileyRating.OnSmileySelectedListener { type -> // You can compare it with rating Type
             //https://github.com/sujithkanna/SmileyRating
-            //TODO
             // log rating to database
             // You can get the user rating too
             // rating will between 1 to 5

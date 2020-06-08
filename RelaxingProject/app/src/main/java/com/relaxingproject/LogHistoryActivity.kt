@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.relaxingproject.LogHistoryActivity.ModelAssistant.setImageViewWithByteArray
 import com.relaxingproject.classes.DatabaseHelper
 import com.relaxingproject.classes.Log
+import kotlinx.android.synthetic.main.loghistory_screen.*
 
 class LogHistoryActivity: AppCompatActivity() {
     private val dbHelper = DatabaseHelper(this)
@@ -30,7 +31,9 @@ class LogHistoryActivity: AppCompatActivity() {
         val logText = findViewById<TextView>(R.id.selectedLog)
         val listView = findViewById<ListView>(R.id.listView)
         val imageView = findViewById<ImageView>(R.id.selectedImage)
-        val ratingText =  findViewById<TextView>(R.id.selectedRating)
+        //val ratingText =  findViewById<TextView>(R.id.selectedRating)
+        val ratingView = findViewById<ImageView>(R.id.moodView)
+
         calendarView?.setOnDateChangeListener{view, year, month, day ->
             val searchedDate = "" + day + "/" + (month + 1) + "/" + year
             showLogs.clear()
@@ -44,17 +47,32 @@ class LogHistoryActivity: AppCompatActivity() {
                 //Display items when click on listView
                 val detailLog: Log = listView.adapter.getItem(position) as Log
                 logText.text = detailLog.text
-                ratingText.text = detailLog.rating
+                //ratingText.text = detailLog.rating
+                when(detailLog.rating.toInt()) {
+                    1 -> ratingView.setImageResource(R.drawable.emotion1)
+                    2 -> ratingView.setImageResource(R.drawable.emotion2)
+                    3 -> ratingView.setImageResource(R.drawable.emotion3)
+                    4 -> ratingView.setImageResource(R.drawable.emotion4)
+                    5 -> ratingView.setImageResource(R.drawable.emotion5)
+                }
                 setImageViewWithByteArray(imageView,detailLog.image)
             }
             val log: Log? = dataLogs.find { it.date == searchedDate }
             if (log == null){
                 logText.text = "No Log found"
-                ratingText.text = "0"
+                //ratingText.text = "0"
+                ratingView.setImageResource(R.drawable.emotion0)
                 setImageViewWithByteArray(imageView, byteArrayOf(0,0))
             }else{
                 logText.text = log.text
-                ratingText.text = log.rating
+                //ratingText.text = log.rating + "aaaaaaaaa"
+                when(log.rating.toInt()) {
+                    1 -> ratingView.setImageResource(R.drawable.emotion1)
+                    2 -> ratingView.setImageResource(R.drawable.emotion2)
+                    3 -> ratingView.setImageResource(R.drawable.emotion3)
+                    4 -> ratingView.setImageResource(R.drawable.emotion4)
+                    5 -> ratingView.setImageResource(R.drawable.emotion5)
+                }
                 setImageViewWithByteArray(imageView,log.image)
             }
 
@@ -86,3 +104,5 @@ class LogHistoryActivity: AppCompatActivity() {
 
     }
 }
+
+

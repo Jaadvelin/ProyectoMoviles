@@ -14,7 +14,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:text="Title"
-        android:textColor="@android:color/black"
+        android:textColor="#4671C6"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
