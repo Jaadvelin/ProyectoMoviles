@@ -19,6 +19,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="wrap_content"
+            android:layout_height="89dp">
+
+        </ListView>
+
+        <TextView
+            android:id="@+id/selectedRating"
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:text="SELECTED RATING"
+            android:textColor="#4671C6" />
+
         <ScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
@@ -30,19 +44,6 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <ListView
-                    android:id="@+id/listView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="112dp">
-
-                </ListView>
-
-                <TextView
-                    android:id="@+id/selectedRating"
-                    android:layout_width="match_parent"
-                    android:layout_height="27dp"
-                    android:text="SELECTED RATING" />
-
                 <ImageView
                     android:id="@+id/selectedImage"
                     android:layout_width="match_parent"
@@ -53,7 +54,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="95dp"
                     android:inputType="textMultiLine"
-                    android:text="SELECTED LOG" />
+                    android:text="SELECTED LOG"
+                    android:textColor="#4671C6" />
             </LinearLayout>
         </ScrollView>
 
