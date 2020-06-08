@@ -96,6 +96,20 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight=".1" />
+
+        <Button
+            android:id="@+id/logoutBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:background="@drawable/rounded_button_logout"
+            android:text="Log out"
+            android:textColor="#ffffff" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1" />
 
     </LinearLayout>

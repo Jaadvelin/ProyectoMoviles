@@ -34,32 +34,38 @@ class LogActivity: AppCompatActivity() {
 
         return stream.toByteArray()
     }
+
     var logs: MutableList<Log> = mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.logging_screen)
         val imageView = findViewById<ImageView>(R.id.imageView)
+        val rating = ""
+
+        smileyRating.setSmileySelectedListener(SmileyRating.OnSmileySelectedListener { type -> // You can compare it with rating Type
+            //https://github.com/sujithkanna/SmileyRating
+            //TODO
+            // log rating to database
+            // You can get the user rating too
+            // rating will between 1 to 5
+            val rating = type.rating.toString()
+        })
+        
         logSaveBtn.setOnClickListener {
             var newLog: Log = Log()
             newLog.text = logText.text.toString()
             newLog.title = logTitle.text.toString()
             newLog.date = dateField.text.toString()
-            //newLog.rating = ratingField.text.toString()
+            newLog.rating = rating//ratingField.text.toString()
             logs.add(newLog)
             val image = imageToBitmap(imageView)
             dbHelper.addLog(newLog, image)
             startActivity(Intent(this,MainActivity::class.java))
         }
 
-        smileyRating.setSmileySelectedListener(SmileyRating.OnSmileySelectedListener { type -> // You can compare it with rating Type
-            //https://github.com/sujithkanna/SmileyRating
-            //TODO
-            // log rating to database
 
-            // You can get the user rating too
-            // rating will between 1 to 5
-            val rating = type.rating
-        })
+
+
     }
 
 
