@@ -19,11 +19,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight=".05" />
-
         <ScrollView
             android:id="@+id/scrollView"
             android:layout_width="match_parent"
@@ -38,25 +33,25 @@
                 <ListView
                     android:id="@+id/listView"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="112dp">
 
                 </ListView>
 
                 <TextView
                     android:id="@+id/selectedRating"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="27dp"
                     android:text="SELECTED RATING" />
 
                 <ImageView
                     android:id="@+id/selectedImage"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="156dp" />
 
                 <TextView
                     android:id="@+id/selectedLog"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="95dp"
                     android:inputType="textMultiLine"
                     android:text="SELECTED LOG" />
             </LinearLayout>
