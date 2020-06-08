@@ -26,8 +26,8 @@ private const val SQL_CREATE_ENTRIES = "CREATE TABLE ${LogTable.LogEntry.TABLE_N
             "${BaseColumns._ID} INTEGER PRIMARY KEY," +
             "${LogTable.LogEntry.COLUMN_NAME_TITLE} TEXT," +
             "${LogTable.LogEntry.COLUMN_NAME_TEXT} TEXT," +
-            "${LogTable.LogEntry.COLUMN_NAME_DATE} TEXT)," +
-            "${LogTable.LogEntry.COLUMN_NAME_IMAGE} BLOB)," +
+            "${LogTable.LogEntry.COLUMN_NAME_DATE} TEXT," +
+            "${LogTable.LogEntry.COLUMN_NAME_IMAGE} BLOB," +
             "${LogTable.LogEntry.COLUMN_NAME_RATING} TEXT)"
 
 private const val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS ${LogTable.LogEntry.TABLE_NAME}"
@@ -57,7 +57,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         contentValues.put(LogTable.LogEntry.COLUMN_NAME_TITLE, log.title)
         contentValues.put(LogTable.LogEntry.COLUMN_NAME_TEXT, log.text) // EmpModelClass Name
         contentValues.put(LogTable.LogEntry.COLUMN_NAME_DATE, log.date) // EmpModelClass Phone
-        contentValues.put(LogTable.LogEntry.COLUMN_NAME_IMAGE, image)
+        contentValues.put(LogTable.LogEntry.COLUMN_NAME_IMAGE, log.image)
         contentValues.put(LogTable.LogEntry.COLUMN_NAME_DATE, log.rating)
         // Inserting Row
         val success = db.insert(TABLE_NAME, null, contentValues)

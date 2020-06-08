@@ -35,8 +35,8 @@ class LogActivity: AppCompatActivity() {
             newLog.date = dateField.text.toString()
             newLog.rating = ratingField.text.toString()
             logs.add(newLog)
-            val image = getBytes(pngImage)
-            dbHelper.addLog(newLog, image)
+            //val image = getBytes(pngImage)
+            //dbHelper.addLog(newLog, image)
             startActivity(Intent(this,MainActivity::class.java))
         }
     }
