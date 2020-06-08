@@ -58,7 +58,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         contentValues.put(LogTable.LogEntry.COLUMN_NAME_TEXT, log.text) // EmpModelClass Name
         contentValues.put(LogTable.LogEntry.COLUMN_NAME_DATE, log.date) // EmpModelClass Phone
         contentValues.put(LogTable.LogEntry.COLUMN_NAME_IMAGE, image)
-        contentValues.put(LogTable.LogEntry.COLUMN_NAME_DATE, log.rating)
+        contentValues.put(LogTable.LogEntry.COLUMN_NAME_RATING, log.rating)
         // Inserting Row
         val success = db.insert(TABLE_NAME, null, contentValues)
         //2nd argument is String containing nullColumnHack

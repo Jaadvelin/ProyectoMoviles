@@ -12,7 +12,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.relaxingproject.classes.DatabaseHelper
 import com.relaxingproject.classes.Log
-import java.security.AccessControlContext
 
 class LogHistoryActivity: AppCompatActivity() {
     private val dbHelper = DatabaseHelper(this)
@@ -34,6 +33,10 @@ class LogHistoryActivity: AppCompatActivity() {
                 }
             }
             listView.adapter = MyCustomAdapter(this, showLogs)
+            listView.setOnItemClickListener { parent, view, position, id ->
+                val detailLog: Log = listView.adapter.getItem(position) as Log
+                logText.text = detailLog.text
+            }
             val log: Log? = dataLogs.find { it.date == searchedDate }
             if (log == null){
                 logText.text = "No Log found"
@@ -54,7 +57,7 @@ class LogHistoryActivity: AppCompatActivity() {
             return rowMain
         }
 
-        override fun getItem(position: Int): Any {
+        override fun getItem(position: Int): Log {
             return mLog[position]
         }
 

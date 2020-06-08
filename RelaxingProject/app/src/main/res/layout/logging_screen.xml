@@ -26,6 +26,19 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".1" />
+        <Button
+            android:id="@+id/btnImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="FOTO" />
+
+        <Button
+            android:id="@+id/logSaveBtn"
+            android:layout_width="119dp"
+            android:layout_height="wrap_content"
+            android:text="Guardar" />
+    </LinearLayout>
 
             <EditText
                 android:id="@+id/dateField"
@@ -81,6 +94,12 @@
                 android:inputType="textPersonName"
                 android:text="Title"
                 android:textColor="#4671C6" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:src="@drawable/photo_placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="285dp"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
             <Space
                 android:layout_width="0dp"
