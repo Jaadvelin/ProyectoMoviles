@@ -38,22 +38,5 @@ class SettingsActivity : AppCompatActivity() {
     private fun doLogout() {
         auth.signOut()
         startActivity(Intent(this, LoginActivity::class.java))
-        //updateUI(user)
-    }
-
-    private fun updateUI(currentUser: FirebaseUser?){
-
-        if(currentUser != null){
-            if(currentUser.isEmailVerified){
-                startActivity(Intent(this, MainActivity::class.java))
-                finish()
-            }else {
-                Toast.makeText(baseContext, "Please verify your email.",
-                    Toast.LENGTH_SHORT).show()
-            }
-        } else{
-            Toast.makeText(baseContext, "Login failed.",
-                Toast.LENGTH_SHORT).show()
-        }
     }
 }
