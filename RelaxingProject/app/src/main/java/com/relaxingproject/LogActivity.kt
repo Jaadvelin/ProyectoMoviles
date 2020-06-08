@@ -37,7 +37,6 @@ class LogActivity: AppCompatActivity() {
         val bitmap = (image.drawable as BitmapDrawable).bitmap
         val stream = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.PNG, 90, stream)
-
         return stream.toByteArray()
     }
 
@@ -78,6 +77,7 @@ class LogActivity: AppCompatActivity() {
         setContentView(R.layout.logging_screen)
         val imageView = findViewById<ImageView>(R.id.imageView)
         imageView.setImageURI(null)
+        var rating = ""
         btnImage.setOnClickListener {
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
                 if(checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED){
@@ -90,7 +90,6 @@ class LogActivity: AppCompatActivity() {
                 pickFromGallery()
             }
         }
-        val rating = ""
 
         smileyRating.setSmileySelectedListener(SmileyRating.OnSmileySelectedListener { type -> // You can compare it with rating Type
             //https://github.com/sujithkanna/SmileyRating
@@ -98,7 +97,7 @@ class LogActivity: AppCompatActivity() {
             // log rating to database
             // You can get the user rating too
             // rating will between 1 to 5
-            val rating = type.rating.toString()
+            rating = type.rating.toString()
         })
         
         logSaveBtn.setOnClickListener {
@@ -107,16 +106,24 @@ class LogActivity: AppCompatActivity() {
             newLog.text = logText.text.toString()
             newLog.title = logTitle.text.toString()
             newLog.date = dateField.text.toString()
+            newLog.dateFormat()
             newLog.rating = rating//ratingField.text.toString()
             logs.add(newLog)
             if(imageFlag == 0){
-                //Revisar que se esta guardando
                 image = byteArrayOf(0,0)
             }else{
                 image = imageToBitmap(imageView)
             }
-            dbHelper.addLog(newLog, image)
-            startActivity(Intent(this,MainActivity::class.java))
+            if(newLog.date == "invalid"){
+                Toast.makeText(this, "Formato de fecha inválido", Toast.LENGTH_SHORT).show()
+            }else if(newLog.title == "" || newLog.text == ""){
+                Toast.makeText(this, "Título o Contenido vacío", Toast.LENGTH_SHORT).show()
+            }else if(newLog.rating == ""){
+                Toast.makeText(this, "Falta evaluar tu día", Toast.LENGTH_SHORT).show()
+            }else{
+                dbHelper.addLog(newLog, image)
+                startActivity(Intent(this, MainActivity::class.java))
+            }
         }
 
 
