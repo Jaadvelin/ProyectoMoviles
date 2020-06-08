@@ -33,7 +33,7 @@
                 android:layout_marginBottom="23dp"
                 android:layout_weight="1.2"
                 app:srcCompat="@drawable/meditate"
-                tools:srcCompat="@drawable/meditate" />
+                tools:srcCompat="@drawable/meditate"/>
         </FrameLayout>
 
         <LinearLayout
