@@ -102,9 +102,12 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:ems="10"
-                android:inputType="textPersonName"
+                android:gravity="top"
+                android:inputType="textMultiLine"
                 android:text="Log Text"
-                android:textColor="#4671C6" />
+                android:textAlignment="viewStart"
+                android:textColor="#4671C6"
+                tools:ignore="RtlCompat" />
 
             <Space
                 android:layout_width="0dp"
@@ -128,7 +131,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                tools:srcCompat="@drawable/photo_placeholder" />
 
             <Space
                 android:layout_width="0dp"
