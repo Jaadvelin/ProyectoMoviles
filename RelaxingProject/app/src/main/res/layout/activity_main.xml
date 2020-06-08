@@ -39,7 +39,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_weight=".5"
             android:orientation="vertical">
 
             <TextView
@@ -47,16 +47,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="Rate your day"
+                android:text="Have a wonderful day!"
                 android:textAlignment="center"
+                android:textColor="#4671C6"
                 android:textSize="24sp"
                 android:textStyle="bold" />
-
-            <com.hsalf.smileyrating.SmileyRating
-                android:id="@+id/smileyRating"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
 
             <TextView
                 android:id="@+id/dateLbl"
@@ -65,6 +60,7 @@
                 android:layout_weight="1"
                 android:text="DATE"
                 android:textAlignment="center"
+                android:textColor="#4671C6"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 

@@ -7,6 +7,7 @@ import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.hsalf.smileyrating.SmileyRating
 import com.relaxingproject.classes.DatabaseHelper
 import com.relaxingproject.classes.Log
 import kotlinx.android.synthetic.main.logging_screen.*
@@ -43,11 +44,23 @@ class LogActivity: AppCompatActivity() {
             newLog.text = logText.text.toString()
             newLog.title = logTitle.text.toString()
             newLog.date = dateField.text.toString()
-            newLog.rating = ratingField.text.toString()
+            //newLog.rating = ratingField.text.toString()
             logs.add(newLog)
             val image = imageToBitmap(imageView)
             dbHelper.addLog(newLog, image)
             startActivity(Intent(this,MainActivity::class.java))
         }
+
+        smileyRating.setSmileySelectedListener(SmileyRating.OnSmileySelectedListener { type -> // You can compare it with rating Type
+            //https://github.com/sujithkanna/SmileyRating
+            //TODO
+            // log rating to database
+
+            // You can get the user rating too
+            // rating will between 1 to 5
+            val rating = type.rating
+        })
     }
+
+
 }
