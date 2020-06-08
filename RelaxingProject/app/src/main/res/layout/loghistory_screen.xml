@@ -17,26 +17,50 @@
         <CalendarView
             android:id="@+id/logCalendarView"
             android:layout_width="match_parent"
-            android:layout_height="256dp"
-            android:layout_weight="1.1" />
+            android:layout_height="wrap_content" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight=".087" />
+            android:layout_height="0dp"
+            android:layout_weight=".05" />
 
-        <TextView
-            android:id="@+id/selectedLog"
+        <ScrollView
+            android:id="@+id/scrollView"
             android:layout_width="match_parent"
-            android:layout_height="54dp"
-            android:layout_weight="1"
-            android:text="SELECTED LOG" />
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.1" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/listView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </ListView>
+
+                <TextView
+                    android:id="@+id/selectedRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SELECTED RATING" />
+
+                <ImageView
+                    android:id="@+id/selectedImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/selectedLog"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:text="SELECTED LOG" />
+            </LinearLayout>
+        </ScrollView>
 
 
     </LinearLayout>
