@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#5ccccc"
+        android:gravity="center_horizontal|center_vertical"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,20 +54,6 @@
             android:inputType="textPassword"
             android:paddingLeft="16dp" />
 
-        <Button
-            android:id="@+id/logButton"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_margin="10dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:background="@drawable/rounded_button_login"
-            android:text="Login"
-            android:textColor="@android:color/white" />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -77,9 +64,24 @@
             android:textColor="#ffffff" />
 
         <Button
+            android:id="@+id/logButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:background="@drawable/rounded_button_login"
+            android:text="Login"
+            android:textColor="@android:color/white" />
+
+        <Button
             android:id="@+id/regButton"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
@@ -96,20 +98,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:background="@drawable/rounded_button_login"
-            android:onClick="login"
-            android:text="Login"
-            android:textColor="@android:color/white" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
