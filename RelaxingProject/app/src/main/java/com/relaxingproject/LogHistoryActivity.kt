@@ -41,6 +41,7 @@ class LogHistoryActivity: AppCompatActivity() {
             }
             listView.adapter = MyCustomAdapter(this, showLogs)
             listView.setOnItemClickListener { parent, view, position, id ->
+                //Display items when click on listView
                 val detailLog: Log = listView.adapter.getItem(position) as Log
                 logText.text = detailLog.text
                 ratingText.text = detailLog.rating
@@ -49,9 +50,14 @@ class LogHistoryActivity: AppCompatActivity() {
             val log: Log? = dataLogs.find { it.date == searchedDate }
             if (log == null){
                 logText.text = "No Log found"
+                ratingText.text = "0"
+                setImageViewWithByteArray(imageView, byteArrayOf(0,0))
             }else{
                 logText.text = log.text
+                ratingText.text = log.rating
+                setImageViewWithByteArray(imageView,log.image)
             }
+
         }
 
     }
