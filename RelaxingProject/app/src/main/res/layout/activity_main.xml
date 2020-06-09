@@ -69,13 +69,15 @@
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:gravity="center_vertical">
 
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:gravity="center_vertical">
 
                 <Space
                     android:layout_width="match_parent"
@@ -123,13 +125,12 @@
                     android:layout_weight=".1" />
 
                 <Button
-                    android:id="@+id/medHistBtn"
+                    android:id="@+id/settingsBtn"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/rounded_button_default"
-                    android:text="Meditation History"
-                    android:textAlignment="center"
+                    android:text="Settings"
                     android:textColor="#ffffff" />
 
                 <Space
@@ -148,45 +149,6 @@
 
                 <Space
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".1" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".1" />
-
-                <Button
-                    android:id="@+id/settingsBtn"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/rounded_button_default"
-                    android:text="Settings"
-                    android:textColor="#ffffff" />
-
-                <Space
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight=".1" />
-
-                <Button
-                    android:id="@+id/Patterns"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/rounded_button_default"
-                    android:text="Patterns"
-                    android:textColor="#ffffff" />
-
-                <Space
-                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight=".1" />
             </TableRow>

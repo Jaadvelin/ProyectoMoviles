@@ -43,9 +43,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this,LogHistoryActivity::class.java))
         }
 
+        /* //Med history button, no functionality yet
         this.medHistBtn.setOnClickListener {
             startActivity(Intent(this,MedHistoryActivity::class.java))
         }
+        */
 
 
         this.settingsBtn.setOnClickListener {
