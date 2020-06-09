@@ -1,23 +1,29 @@
 package com.relaxingproject
 
-import android.app.*
+import android.app.AlarmManager
+import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import androidx.annotation.RequiresApi
-import android.graphics.BitmapFactory
-import android.graphics.Color
 import android.util.Log
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.SignInButton
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.Task
 import com.relaxingproject.util.NotificationUt
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -57,6 +63,8 @@ class MainActivity : AppCompatActivity() {
         this.currentDate()
 
     }
+
+
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun currentDate() {
